@@ -316,7 +316,7 @@ ui <- dashboardPage(
                             radioButtons(
                               inputId = paste0("item_", item),
                               label = NULL,
-                              choices = setNames(1:8, c("1 - Not at all", "2", "3", "4", "5", "6", "7", "8 - Very much")),
+                              choices = setNames(1:8, c("1 - Extremely Inaccurate", "2", "3", "4", "5", "6", "7", "8 - Extremely Accurate")),
                               selected = if(DEBUG_MODE) sample(1:8, 1) else character(0),
                               inline = TRUE
                             )
