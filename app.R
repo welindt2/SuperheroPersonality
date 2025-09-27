@@ -307,7 +307,7 @@ ui <- dashboardPage(
                   title = "Personality Assessment", status = "primary", solidHeader = TRUE,
                   width = 12, height = "700px",
                   div(style = "height: 600px; overflow-y: auto;",
-                      h4("Please rate each trait on a scale from 1 (Not at all like me) to 8 (Very much like me):"),
+                      h4("Please rate each trait on a scale from 1 (Extremely Inaccurate) to 8 (Extremely Accurate):"),
                       br(),
                       lapply(1:length(all_items), function(i) {
                         item <- all_items[i]
