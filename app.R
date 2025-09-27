@@ -9,7 +9,7 @@ library(dplyr)
 library(mirt)
 
 # Debugging flag - set to TRUE to auto-fill questions for testing
-DEBUG_MODE <- FALSE  # Set to FALSE for production
+DEBUG_MODE <- TRUE  # Set to FALSE for production
 
 # Your actual factor structure
 factor_items <- list(
@@ -26,9 +26,12 @@ factor_items <- list(
   Stabilizing = c("COMPASSIONATE", "SYMPATHETIC", "WARM", "SENSITIVE", "SOFT_HEARTED", "CONSIDERATE")
 )
 
+
 # Create unique items list from your factors
 all_items <- unique(unlist(factor_items, use.names = FALSE))
 
+# Randomize the order of items (different each time)
+all_items <- sample(all_items)
 
 score_new_data <- function(irt_results, new_data, method = "EAP", return_se = TRUE) {
   models <- irt_results$models
@@ -268,6 +271,7 @@ ui <- dashboardPage(
               <li><strong>Openness:</strong> Your willingness to try new ideas and embrace innovation vs. tradition</li>
             </ul>"),
                   br(),
+                  p("Press Start to jump right in, or, keep reading to learn about the sub-factors!"),
                   div(style = "text-align: center;",
                       actionButton("start_assessment", "Start Assessment →", class = "btn-primary btn-lg")
                   )
@@ -277,6 +281,8 @@ ui <- dashboardPage(
                 box(
                   title = "Factor Structure", status = "info", solidHeader = TRUE,
                   width = 12,
+                  h4("More Factors"),
+                  p("In addition to Openness, Stabilzing, and Dynamism, we also measure 8 sub-factors comprising those three main factors. Their descriptions follow."),
                   br(),
                   h5("The 8 Lower Dimensions:"),
                   HTML("<ul>
