@@ -9,7 +9,7 @@ library(dplyr)
 library(mirt)
 
 # Debugging flag - set to TRUE to auto-fill questions for testing
-DEBUG_MODE <- TRUE  # Set to FALSE for production
+DEBUG_MODE <- FALSE  # Set to FALSE for production
 
 # Your actual factor structure
 factor_items <- list(
