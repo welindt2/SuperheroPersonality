@@ -440,7 +440,7 @@ server <- function(input, output, session) {
     subfactor_only <- subfactor_scores
     subfactor_only$Openness <- NULL
     subfactor_only$Dynamism <- NULL
-    subfactor_only$Stability <- NULL
+    subfactor_only$Stabilizing <- NULL
     
     # Store scores
     user_scores$subfactor_scores <- subfactor_scores
